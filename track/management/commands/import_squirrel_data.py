@@ -2,7 +2,7 @@ import csv
 
 from django.core.management.base import BaseCommand
 from django.utils import timezone
-from squirrels.models import Sighting
+from track.models import Sighting
 
 
 class Command(BaseCommand):
