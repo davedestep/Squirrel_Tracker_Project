@@ -8,3 +8,8 @@ def index(request):
 	return render(request, 'map/map.html', {"sightings": Sighting.objects.all()[:50]})
 
 
+#view for home page
+def home_view(request):
+	return render(request, 'map/home.html', {'title': 'Home'})
+
+	#return HttpResponse('Welcome to Squirrel Tracker')
