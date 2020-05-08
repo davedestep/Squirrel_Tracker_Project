@@ -33,6 +33,9 @@ from django.utils.translation import gettext as _
 #    )
 
 
+#############################
+#Need to add data validation!!
+############################
 
 class Sighting(models.Model):
     latitude = models.FloatField(null=True)
