@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from map.models import Squirrel
+from map.models import Sighting
 
 # Create your views here.
 
