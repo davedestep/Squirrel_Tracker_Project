@@ -10,3 +10,10 @@ def index(request):
 #view for home page
 def home_view(request):
 	return render(request, 'map/home.html', {'title': 'Home'})
+
+#View for sightings
+def list_squirrel_sightings(request):
+    squirrels = Sighting.objects.all()
+    return render(request,'sightings/list.html', context, {'squirrels': squirrels})
+
+
