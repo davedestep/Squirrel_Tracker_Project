@@ -10,15 +10,15 @@ from django.http import HttpResponse
 
 #view for home page Do we need this here to or just in map.views?
 ###############################################################
-def home_view(request):
-	return render(request, 'map/home.html', {'title': 'Home'})
+#def home_view(request):
+#	return render(request, 'map/home.html', {'title': 'Home'})
 ###############################################################
 
 
 #view of list of sightings with links to edit each
 
 def list_squirrel_sightings(request):
-    squirrels = Sqighting.objects.all()
+    squirrels = Sighting.objects.all()
     return render(request,'sightings/list.html', context, {'squirrels': squirrels})
 
 
