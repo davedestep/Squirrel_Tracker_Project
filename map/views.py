@@ -14,6 +14,6 @@ def home_view(request):
 #View for sightings
 def list_squirrel_sightings(request):
     squirrels = Sighting.objects.all()
-    return render(request,'map/lists.html')
+    return render(request,'map/lists.html', context)
 
 
