@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('map/', include('map.urls')),
 
-    path('map/', include('lists.urls')),
+    #path('map/', include('lists.urls')),
 ]
