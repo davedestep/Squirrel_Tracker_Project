@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Sighting
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
@@ -21,11 +22,10 @@ def list_squirrel_sightings(request):
 
 #View for stats
 def squirrel_stats(request):
-	total_squirrels = Sighting.objects.all().count
-        colors = Sighting.objects.all().annotate(frequency=Count("primary_fur_color"))
-        
-	context = {
-		'total_squirrels': total_squirrels, 
+        total_squirrels = Sighting.objects.all().count
+        colors =set(Sighting.objects.all().values_list("primary_fur_color").annotate(frequency=Count("primary_fur_color")))
+        context = {
+		'total_squirrels': total_squirrels,
                 'colors': colors,
 		}
-	return render(request,'map/stats.html', context)
+        return render(request,'map/stats.html', context)
