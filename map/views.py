@@ -7,12 +7,18 @@ from .forms import SightingUpdateForm
 
 # Create your views here.
 def index(request):
-	return render(request, 'map/map.html', {"sightings": Sighting.objects.all()[:50]})
+	context = {
+		"sightings": Sighting.objects.all()[:50],
+		}
+	return render(request, 'map/map.html', context)
 
 
 #view for home page
 def home_view(request):
-	return render(request, 'map/home.html', {'title': 'Home'})
+	context = {
+		'title': 'Home',
+		}
+	return render(request, 'map/home.html', context)
 
 #View for sightings
 def list_squirrel_sightings(request):
@@ -24,7 +30,20 @@ def list_squirrel_sightings(request):
 
 #View for updating a sighting
 def update(request, squirrel_id):
-	squirrel = Squirrel.object.get(unique_squirrel_id=squirrel_id)
+	sighting = Sighting.objects.get(unique_squirrel_id=squirrel_id)
+	if request.method == 'POST':
+		form = SightingUpdateForm(request.POST, instance = sighting)
+		if form.is_valid():
+			form.save()
+	else:
+		form = SightingUpdateForm(instance=sighting)
+
+	context = {
+		'form': form,
+		}
+
+	return render(request, 'map/update.html', context)
+
 
 
 #View for stats
