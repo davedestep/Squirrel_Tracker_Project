@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/sightings/carousel.css">
       <title>Squirrel Statistics Overview</title>
    </head>
    <body>
+      <header class="site-header">
+     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: #f18973">
+       <div class="container">
+         <a class="navbar-brand mr-4" href>NYC Squirrel Tracker</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+           <div class="navbar-nav mr-auto">
+             <a class="nav-item nav-link" href>Home</a>
+             <a class="nav-item nav-link" href="/map/">Map</a>
+             <a class="nav-item nav-link" href="/map/sightings/">List of Squirrels</a>
+        <a class="nav-item nav-link" href="/map/stats/">Stats of Squirrels</a>
+           </div>
+       </div>
+   </div>
+</nav>
+</header>
       <h1>Frequencies</h1>
       <h2>Total Squirrel Sightings: <span style="color:black">{{total_squirrels}}</span></h2>
       <ul style="list-style-type:disc">
