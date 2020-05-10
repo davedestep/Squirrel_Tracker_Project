@@ -3,6 +3,8 @@ from django.shortcuts import render
 from .models import Sighting
 from django.db.models import Count
 
+from .forms import SightingUpdateForm
+
 # Create your views here.
 def index(request):
 	return render(request, 'map/map.html', {"sightings": Sighting.objects.all()[:50]})
@@ -19,6 +21,11 @@ def list_squirrel_sightings(request):
 		'squirrels': squirrels, 
 		}
 	return render(request,'map/lists.html', context)
+
+#View for updating a sighting
+def update(request, squirrel_id):
+	squirrel = Squirrel.object.get(unique_squirrel_id=squirrel_id)
+
 
 #View for stats
 def squirrel_stats(request):
