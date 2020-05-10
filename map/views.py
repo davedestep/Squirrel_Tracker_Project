@@ -33,3 +33,10 @@ def squirrel_stats(request):
                 'squirrel_age':squirrel_age,
 		}
         return render(request,'map/stats.html', context)
+
+#View for updating? Will only be able to view with this
+def get_squirrel(request, unique_squirrel_id):
+    squirrel = Pet.objects.get(id=unique_squirrel_id)
+    return HttpResponse(f'Hello, my latitude is {squirrel.latitude}!')
+
+
