@@ -7,4 +7,5 @@ urlpatterns = [
 	path('sightings/', views.list_squirrel_sightings),
 	path('stats/', views.squirrel_stats),
 	path('sightings/<squirrel_id>/', views.update),
+	path('sightings/add/', views.add_sighting),
 ]
