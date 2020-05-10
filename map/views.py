@@ -36,7 +36,7 @@ def squirrel_stats(request):
 
 #View for updating? Will only be able to view with this
 def get_squirrel(request, unique_squirrel_id):
-    squirrel = Pet.objects.get(id=unique_squirrel_id)
+    squirrel = Sighting.objects.get(id=unique_squirrel_id)
     return HttpResponse(f'Hello, my latitude is {squirrel.latitude}!')
 
 
