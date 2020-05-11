@@ -24,10 +24,11 @@ h1 {
          </button>
          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
            <div class="navbar-nav mr-auto">
-             <a class="nav-item nav-link" href>Home</a>
+             <a class="nav-item nav-link" href='../../'>Home</a>
              <a class="nav-item nav-link" href="/map/">Map</a>
-             <a class="nav-item nav-link" href="/map/sightings/">List of Squirrels</a>
-        <a class="nav-item nav-link" href="/map/stats/">Stats of Squirrels</a>
+             <a class="nav-item nav-link" href="/sightings/">List of Squirrels</a>
+             <a class="nav-item nav-link" href="/sightings/add/">Add A Squirrel</a>
+        <a class="nav-item nav-link" href="/sightings/stats/">Stats of Squirrels</a>
            </div>
        </div>
    </div>
@@ -40,12 +41,14 @@ h1 {
 	<p class="lead">
   These are the specific stats of a squirrel sighting. Feel free to edit this page with more updated information.
 </p>
+</div>
 <form method = "POST">
 	{% csrf_token %}
 
 	{{ form.as_p }}
-	</div>
-	}
+	<input class="btn btn-primary" type="submit" name="Update!" value="Update!">
+</form>
+
 	
 </main>
 

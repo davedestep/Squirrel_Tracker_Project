@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Sighting
 from django.db.models import Count
 
@@ -45,6 +45,23 @@ def update(request, squirrel_id):
 	return render(request, 'map/update.html', context)
 
 
+#View to add a sighting
+def add_sighting(request):
+	if request.method == 'POST':
+		form = SightingUpdateForm(request.POST)
+		if form.is_valid():
+			new_squirrel_id = form['unique_squirrel_id'].value()
+			form.save()
+			return redirect('f/sightings/{new_squirrel_id}/')
+	else:
+		form = SightingUpdateForm()
+
+	context = {
+		'form': form,
+		}
+
+	return render(request, 'map/add_sighting.html', context)
+
 
 #View for stats
 def squirrel_stats(request):
@@ -60,9 +77,9 @@ def squirrel_stats(request):
 		}
         return render(request,'map/stats.html', context)
 
-#View for updating? Will only be able to view with this
-def get_squirrel(request, unique_squirrel_id):
-    squirrel = Sighting.objects.get(id=unique_squirrel_id)
-    return HttpResponse(f'Hello, my latitude is {squirrel.latitude}!')
+# #View for updating? Will only be able to view with this
+# def get_squirrel(request, unique_squirrel_id):
+#     squirrel = Sighting.objects.get(id=unique_squirrel_id)
+#     return HttpResponse(f'Hello, my latitude is {squirrel.latitude}!')
 
 
