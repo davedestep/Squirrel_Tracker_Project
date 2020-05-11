@@ -44,12 +44,6 @@ class Sighting(models.Model):
     shift = models.CharField(max_length=20)
     date = models.DateField(null=True)
     age = models.CharField(max_length=20)
-    #AGE_CHOICES = (
-    #                ('adult', 'Adult'),
-    #                ('juvenile', 'Juvenile'),
-                                )
-    #age = models.CharField('Age', max_length=20, choices=AGE_CHOICES)
-
     primary_fur_color = models.CharField(max_length=200)
     location  = models.CharField(max_length=200)
     specific_location  = models.CharField(max_length=200)
