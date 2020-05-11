@@ -5,3 +5,8 @@ It allows users to view a map of all sightings, look at specific stats for a squ
 
 
 Collaborators: David DeStephano, Montsie Guerrero
+Project Group 1, Section 1
+
+UNIs: [dd2948, acg2176]
+
+Link:
