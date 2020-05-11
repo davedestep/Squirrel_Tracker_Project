@@ -69,11 +69,14 @@ def squirrel_stats(request):
         colors =set(Sighting.objects.all().values_list("primary_fur_color").annotate(frequency=Count("primary_fur_color")))
         daytime =set(Sighting.objects.all().values_list("shift").annotate(frequency=Count("shift")))
         squirrel_age =set(Sighting.objects.all().values_list("age").annotate(frequency=Count("age")))
+
+        squirrel_location =set(Sighting.objects.all().values_list("location").annotate(frequency=Count("location")))
         context = {
 		'total_squirrels': total_squirrels,
                 'colors': colors,
                 'daytime':daytime,
                 'squirrel_age':squirrel_age,
+                'squirrel_location':squirrel_location,
 		}
         return render(request,'map/stats.html', context)
 

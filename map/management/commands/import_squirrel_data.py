@@ -26,6 +26,7 @@ class Command(BaseCommand):
                 date=timezone.datetime.strptime(dict_['Date'], '%m%d%Y').date(),
                 age=dict_['Age'],
                 primary_fur_color=dict_['Primary Fur Color'],
+                location=dict_['Location'],
                 specific_location=dict_['Specific Location'],
                 running=dict_['Running'].lower() == 'true',
                 chasing=dict_['Chasing'].lower() == 'true',
