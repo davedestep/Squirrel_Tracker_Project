@@ -43,7 +43,17 @@ class Sighting(models.Model):
     unique_squirrel_id = models.CharField(max_length=100)
     shift = models.CharField(max_length=20)
     date = models.DateField(null=True)
-    age = models.CharField(max_length=20)
+#    age = models.CharField(max_length=20)
+
+    AGE_CHOICES = (
+        ('Adult', 'Adult'),
+        ('Juvenile', 'Juvenile'),
+    )
+
+    age = models.CharField( max_length=20, choices=AGE_CHOICES)
+
+
+
     primary_fur_color = models.CharField(max_length=200)
     location  = models.CharField(max_length=200)
     specific_location  = models.CharField(max_length=200)
