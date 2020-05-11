@@ -35,6 +35,7 @@ def update(request, squirrel_id):
 		form = SightingUpdateForm(request.POST, instance = sighting)
 		if form.is_valid():
 			form.save()
+			return redirect(f'/sightings/{squirrel_id}')
 	else:
 		form = SightingUpdateForm(instance=sighting)
 
@@ -52,7 +53,7 @@ def add_sighting(request):
 		if form.is_valid():
 			new_squirrel_id = form['unique_squirrel_id'].value()
 			form.save()
-			return redirect('f/sightings/{new_squirrel_id}/')
+			return redirect(f'/sightings/{new_squirrel_id}/')
 	else:
 		form = SightingUpdateForm()
 
